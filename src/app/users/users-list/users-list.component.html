@@ -1,0 +1,87 @@
+<mat-card class="container">
+  <mat-card-header>
+    <mat-card-title>Lista de Usuários</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="action-menu">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="E.g: Maria"
+          #input
+        />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">Adicionar usuário</button>
+    </div>
+
+    <div class="mat-elevation-z4">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <!-- User Details -->
+        <ng-container matColumnDef="user details">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Detalhes do Usuário
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <app-user-details [user]="row"></app-user-details>
+          </td>
+        </ng-container>
+
+        <!-- Role -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Cargo</th>
+          <td mat-cell *matCellDef="let row">{{ row.role }}</td>
+        </ng-container>
+
+        <!-- Department -->
+        <ng-container matColumnDef="department">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Departamento
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.department }}</td>
+        </ng-container>
+
+        <!-- Submits To -->
+        <ng-container matColumnDef="submits to">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Submete-se a
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.submitsTo }}</td>
+        </ng-container>
+
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Ações</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-raised-button color="primary">Editar</button>
+            <button mat-raised-button color="warn">Excluir</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            Nenhum resultado de "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,42 @@
+<mat-grid-list cols="4" rowHeight="18px">
+  <mat-grid-tile colspan="1" rowspan="4">
+    <img [src]="user.avatar" alt="user.avatar" width="52" height="52" />
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <div class="text-info text-name">
+      <span>
+        {{ user.name }}
+      </span>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <div class="text-info">
+      <mat-icon>mail_outline</mat-icon>
+      <span>
+        {{ user.email }}
+      </span>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <div class="text-info" *ngIf="user.additionalContact">
+      <mat-icon>drafts</mat-icon>
+      <span class="additional-info">
+        {{ user.additionalContact }}
+      </span>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" rowspan="1">
+    <div class="text-info text-date">
+      <span>
+        {{
+          "add on " +
+            user.admittedTo.toLocaleDateString("pt-BR", {
+              day: "numeric",
+              month: "numeric",
+              year: "numeric"
+            })
+        }}
+      </span>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

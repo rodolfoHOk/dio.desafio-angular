@@ -1,0 +1,41 @@
+mat-grid-list {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 220px;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.text-info {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 4px;
+  left: 8px;
+  font-size: 13px;
+}
+
+.additional-info {
+  color: #0099ff;
+}
+
+.text-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0099ff;
+}
+
+.text-date {
+  color: #999999;
+  font-size: 12px;
+}
+
+.mat-icon {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}

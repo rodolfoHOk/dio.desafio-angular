@@ -1,0 +1,29 @@
+.container {
+  min-height: calc(100vh - 96px);
+  border-radius: 0;
+}
+
+.action-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+
+  button {
+    height: 40px;
+    margin-top: -24px;
+  }
+}
+
+table {
+  width: 100%;
+
+  button {
+    margin-right: 8px;
+    width: 80px;
+  }
+}
+
+.mat-form-field {
+  width: 25%;
+}
