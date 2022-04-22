@@ -16,7 +16,7 @@ export class UserService {
       role: 'Desenvolvedor front-end',
       department: 'Software',
       submitsTo: 'Clara D.',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ export class UserService {
       avatar: '/assets/images/clara.jpg',
       role: 'Gerente de produção',
       department: 'Software',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export class UserService {
       role: 'Psicólogo',
       department: 'RH',
       submitsTo: 'Talita V.',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ export class UserService {
       role: 'Auxiliar administrativo',
       department: 'Administração',
       submitsTo: 'Pedro R.',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 5,
@@ -58,7 +58,7 @@ export class UserService {
       role: 'Desenvolvedor back-end',
       department: 'software',
       submitsTo: 'Clara D.',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 6,
@@ -69,7 +69,7 @@ export class UserService {
       role: 'Secretária',
       department: 'RH',
       submitsTo: 'Talita V.',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 7,
@@ -79,7 +79,7 @@ export class UserService {
       avatar: '/assets/images/pedro.jpg',
       role: 'Gerente',
       department: 'Administração',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
     {
       id: 8,
@@ -88,7 +88,7 @@ export class UserService {
       avatar: '/assets/images/talita.jpg',
       role: 'Gerente',
       department: 'RH',
-      admittedTo: new Date(),
+      admittedAt: new Date(),
     },
   ];
 

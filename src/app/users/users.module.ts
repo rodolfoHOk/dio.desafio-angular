@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UsersRoutingModule } from './users-routing.module';
 import {
   UserDeleteDialog,
   UsersListComponent,
 } from './users-list/users-list.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,12 +21,20 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [UsersListComponent, UserDetailsComponent, UserDeleteDialog],
+  declarations: [
+    UsersListComponent,
+    UserDetailsComponent,
+    UserDeleteDialog,
+    UserFormComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     UsersRoutingModule,
     MatCardModule,
     MatButtonModule,
@@ -38,6 +47,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   entryComponents: [MatDialogModule],
 })

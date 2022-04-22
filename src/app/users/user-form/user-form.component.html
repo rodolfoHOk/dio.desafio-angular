@@ -1,0 +1,139 @@
+<mat-card class="container">
+  <mat-card-header>
+    <mat-card-title *ngIf="userId">Atualização de Usuário</mat-card-title>
+    <mat-card-title *ngIf="!userId">Cadastro de Usuário</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="userForm">
+      <mat-form-field class="w-100" appearance="outline" *ngIf="userId">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="id" [disabled]="true" />
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Avatar URL</mat-label>
+        <input
+          matInput
+          placeholder="E.g. /assets/images/maria.jpg"
+          formControlName="avatar"
+          required
+        />
+        <mat-error *ngIf="userForm.controls['avatar'].hasError('required')">
+          Campo Avatar URL é Obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-50 mr-4" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          placeholder="E.g. Maria Souza"
+          formControlName="name"
+          required
+        />
+        <mat-error *ngIf="userForm.controls['name'].hasError('required')">
+          Campo Nome é Obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-50 ml-4" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input
+          matInput
+          placeholder="E.g. maria@email.com"
+          formControlName="email"
+          required
+        />
+        <mat-error
+          *ngIf="
+            userForm.controls['email'].hasError('email') &&
+            !userForm.controls['email'].hasError('required')
+          "
+        >
+          Campo E-mail Inválido!
+        </mat-error>
+        <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+          Campo E-mail é Obrigatório!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Contato Adicional</mat-label>
+        <input
+          matInput
+          placeholder="E.g. 11-9-8765-4321 ou maria@infomail.com"
+          formControlName="additionalContact"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="w-50 mr-4" appearance="outline">
+        <mat-label>Cargo</mat-label>
+        <input
+          matInput
+          placeholder="E.g. Secretária"
+          formControlName="role"
+          required
+        />
+        <mat-error *ngIf="userForm.controls['role'].hasError('required')">
+          Campo Cargo é Obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-50 ml-4" appearance="outline">
+        <mat-label>Departamento</mat-label>
+        <input
+          matInput
+          placeholder="E.g. Administrativo"
+          formControlName="department"
+          required
+        />
+        <mat-error *ngIf="userForm.controls['department'].hasError('required')">
+          Campo Departamento é Obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="w-50 mr-4" appearance="outline">
+        <mat-label>Submete-se a</mat-label>
+        <input
+          matInput
+          placeholder="E.g. Maria Souza"
+          formControlName="submitsTo"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="w-50 ml-4" appearance="outline">
+        <mat-label>Data Admissão</mat-label>
+        <input
+          matInput
+          [matDatepicker]="admittedAt"
+          formControlName="admittedAt"
+          placeholder="dd/mm/yyyy"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="admittedAt"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #admittedAt></mat-datepicker>
+        <mat-error *ngIf="userForm.controls['admittedAt'].hasError('required')">
+          Campo Data Admissão é Obrigatório!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-buttons">
+        <button mat-raised-button color="warn" [routerLink]="['/users']">
+          Cancelar
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/users']"
+          (click)="salvar()"
+        >
+          <span *ngIf="userId"> Atualizar </span>
+          <span *ngIf="!userId"> Cadastrar </span>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

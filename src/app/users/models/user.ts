@@ -7,5 +7,5 @@ export interface User {
   role: string;
   department: string;
   submitsTo?: string;
-  admittedTo: Date;
+  admittedAt: Date;
 }
